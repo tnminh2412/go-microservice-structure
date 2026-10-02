@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  app_edge_social_runner:
+    image: registry.example.com/app_edge_social_runner:latest
+    ports:
+      - 25051:25051
+    environment:
+      - env=stag
+    volumes:
+      - /home/$USER/go/log:/log
+      - /home/$USER/go/machine.ip:/opt/machine.ip
+    networks:
+      - app
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 2s
+      resources:
+        limits:
+          cpus: '4'
+          memory: 2000M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+networks:
+  app:
+    external: true

@@ -1,0 +1,24 @@
+# Config chứa thông tin nhạy cảm
+*.ini
+!config.example.ini
+docker-compose-stag.yml
+
+# Script deploy chứa host/IP nội bộ
+sync.sh
+deploy.sh
+
+# Build output
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+service/app/integration/worker/player_commission/cmm_integration_worker_player_commission
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
